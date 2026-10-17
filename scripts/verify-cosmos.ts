@@ -18,9 +18,9 @@ import * as path from 'path';
 let passedTests = 0;
 let totalTests = 0;
 
-function assert(condition: boolean, testName: string, details?: string) {
+function assert(condition: unknown, testName: string, details?: string) {
   totalTests++;
-  if (condition) {
+  if (Boolean(condition)) {
     passedTests++;
     console.log(`  ✓ ${testName}`);
   } else {

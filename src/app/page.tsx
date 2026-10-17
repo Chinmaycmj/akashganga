@@ -13,6 +13,8 @@ import {
   CircleDot,
   Orbit,
   Box,
+  Calculator,
+  Layers,
 } from 'lucide-react';
 
 // Dynamically import EarthSurfaceScene for hero preview
@@ -239,7 +241,123 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 4. Pedagogical Learning Architecture */}
+      {/* 4. Vedic Cosmology, Jyotisha & Mathematical Astronomy Academy Showcase */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3">
+          <div>
+            <div className="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold mb-1 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Ancient Science & Cosmology Academy</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Indian Astronomy, Vedic Cosmology & Jyotisha
+            </h2>
+          </div>
+          <Link
+            href="/curriculum"
+            className="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold"
+          >
+            <span>View 10-Stage Curriculum Map</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Card 1: Navagraha Observatory */}
+          <Link
+            href="/navagraha"
+            onClick={() => playClickSound()}
+            className="group bg-slate-900/90 border border-slate-800 hover:border-amber-400/50 rounded-2xl p-5 shadow-xl transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <div>
+              <div className="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 w-fit mb-3">
+                <Orbit className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-1">
+                Navagraha Observatory
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Explore the nine celestial archetypes from Surya to Rahu and Ketu with physical vs. symbolic demarcation.
+              </p>
+            </div>
+            <div className="pt-4 flex items-center gap-1.5 text-xs font-medium text-amber-400">
+              <span>Open Observatory</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          {/* Card 2: Rashi & Nakshatra Atlas */}
+          <Link
+            href="/rashi-nakshatra"
+            onClick={() => playClickSound()}
+            className="group bg-slate-900/90 border border-slate-800 hover:border-purple-400/50 rounded-2xl p-5 shadow-xl transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <div>
+              <div className="p-2.5 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 w-fit mb-3">
+                <Compass className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors mb-1">
+                Rashi & Nakshatra Atlas
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                The 360° celestial wheel of 12 signs, 27 lunar mansions, and 108 padas anchored to fixed background stars.
+              </p>
+            </div>
+            <div className="pt-4 flex items-center gap-1.5 text-xs font-medium text-purple-400">
+              <span>Explore Atlas</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          {/* Card 3: Jyotisha Chart Lab */}
+          <Link
+            href="/chart-lab"
+            onClick={() => playClickSound()}
+            className="group bg-slate-900/90 border border-slate-800 hover:border-blue-400/50 rounded-2xl p-5 shadow-xl transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <div>
+              <div className="p-2.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 w-fit mb-3">
+                <Calculator className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-white group-hover:text-blue-300 transition-colors mb-1">
+                Jyotisha Chart Lab
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Transparent birth chart calculation engine rendering both North and South Indian Kundli with Lahiri ayanamsha.
+              </p>
+            </div>
+            <div className="pt-4 flex items-center gap-1.5 text-xs font-medium text-blue-400">
+              <span>Generate Chart</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          {/* Card 4: Ancient Mathematics Lab */}
+          <Link
+            href="/ancient-math"
+            onClick={() => playClickSound()}
+            className="group bg-slate-900/90 border border-slate-800 hover:border-emerald-400/50 rounded-2xl p-5 shadow-xl transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <div>
+              <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 w-fit mb-3">
+                <Layers className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors mb-1">
+                Ancient Mathematics Lab
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Interactive Aryabhata 24 sine table, Bhaskara I rational sine formula, and Kuttaka Diophantine solver.
+              </p>
+            </div>
+            <div className="pt-4 flex items-center gap-1.5 text-xs font-medium text-emerald-400">
+              <span>Launch Lab</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* 5. Pedagogical Learning Architecture */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl">
           <div className="max-w-2xl mx-auto text-center space-y-2 mb-8">

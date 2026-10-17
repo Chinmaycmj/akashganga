@@ -17,7 +17,12 @@ import {
   Menu,
   X,
   Sparkles,
-  HelpCircle,
+  Orbit,
+  GraduationCap,
+  Calculator,
+  Layers,
+  Clock,
+  Bot
 } from 'lucide-react';
 
 export default function Header() {
@@ -41,9 +46,15 @@ export default function Header() {
 
   const navLinks = [
     { label: 'The Journey', href: '/journey', icon: Compass },
-    { label: 'Knowledge Atlas', href: '/atlas', icon: BookOpen },
-    { label: 'Interactive Labs', href: '/labs', icon: FlaskConical },
-    { label: 'Glossary', href: '/glossary', icon: HelpCircle },
+    { label: 'Navagrahas', href: '/navagraha', icon: Orbit },
+    { label: 'Rashi & Nakshatra', href: '/rashi-nakshatra', icon: Sparkles },
+    { label: 'Chart Lab', href: '/chart-lab', icon: Calculator },
+    { label: 'Ancient Math', href: '/ancient-math', icon: Layers },
+    { label: 'Cosmic Time', href: '/cosmic-time', icon: Clock },
+    { label: 'Curriculum', href: '/curriculum', icon: GraduationCap },
+    { label: 'Library', href: '/library', icon: BookOpen },
+    { label: 'AI Tutor', href: '/tutor', icon: Bot },
+    { label: 'Labs', href: '/labs', icon: FlaskConical },
     { label: 'Bookmarks', href: '/bookmarks', icon: Bookmark, badge: bookmarks.length },
   ];
 

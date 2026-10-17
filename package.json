@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "tsx scripts/verify-cosmos.ts"
+    "test": "tsx scripts/verify-cosmos.ts && tsx scripts/verify-vedic-cosmos.ts"
   },
   "dependencies": {
     "@types/three": "^0.186.0",

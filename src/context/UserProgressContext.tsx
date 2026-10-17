@@ -24,6 +24,12 @@ interface UserProgressContextType {
   setExplanationLevel: (level: 'beginner' | 'intermediate' | 'advanced') => void;
   unitMode: 'familiar' | 'powersOfTen';
   setUnitMode: (mode: 'familiar' | 'powersOfTen') => void;
+  completedCurriculumStages: number[];
+  markCurriculumStageCompleted: (stageNum: number) => void;
+  ayanamshaPreference: string;
+  setAyanamshaPreference: (sys: string) => void;
+  chartFormatPreference: 'North Indian' | 'South Indian';
+  setChartFormatPreference: (format: 'North Indian' | 'South Indian') => void;
 }
 
 const UserProgressContext = createContext<UserProgressContextType | undefined>(undefined);
@@ -38,6 +44,9 @@ export function UserProgressProvider({ children }: { children: React.ReactNode }
   const [reducedMotion, setReducedMotion] = useState<boolean>(false);
   const [explanationLevel, setExplanationLevel] = useState<'beginner' | 'intermediate' | 'advanced'>('intermediate');
   const [unitMode, setUnitMode] = useState<'familiar' | 'powersOfTen'>('familiar');
+  const [completedCurriculumStages, setCompletedCurriculumStages] = useState<number[]>([1]);
+  const [ayanamshaPreference, setAyanamshaPreference] = useState<string>('Lahiri');
+  const [chartFormatPreference, setChartFormatPreference] = useState<'North Indian' | 'South Indian'>('North Indian');
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -54,6 +63,17 @@ export function UserProgressProvider({ children }: { children: React.ReactNode }
       const savedNotes = localStorage.getItem('infinite_cosmos_notes');
       if (savedNotes) setNotes(JSON.parse(savedNotes));
 
+      const savedCurriculum = localStorage.getItem('infinite_cosmos_curriculum');
+      if (savedCurriculum) setCompletedCurriculumStages(JSON.parse(savedCurriculum));
+
+      const savedAyanamsha = localStorage.getItem('infinite_cosmos_ayanamsha');
+      if (savedAyanamsha) setAyanamshaPreference(savedAyanamsha);
+
+      const savedFormat = localStorage.getItem('infinite_cosmos_chart_format');
+      if (savedFormat && ['North Indian', 'South Indian'].includes(savedFormat)) {
+        setChartFormatPreference(savedFormat as 'North Indian' | 'South Indian');
+      }
+
       const savedLevel = localStorage.getItem('infinite_cosmos_level');
       if (savedLevel && ['beginner', 'intermediate', 'advanced'].includes(savedLevel)) {
         setExplanationLevel(savedLevel as 'beginner' | 'intermediate' | 'advanced');
@@ -65,6 +85,19 @@ export function UserProgressProvider({ children }: { children: React.ReactNode }
       // localStorage unavailable or SSR
     }
   }, []);
+
+  const markCurriculumStageCompleted = (stageNum: number) => {
+    setCompletedCurriculumStages(prev => {
+      if (!prev.includes(stageNum)) {
+        const next = [...prev, stageNum];
+        try {
+          localStorage.setItem('infinite_cosmos_curriculum', JSON.stringify(next));
+        } catch {}
+        return next;
+      }
+      return prev;
+    });
+  };
 
   const markStageVisited = (id: number) => {
     setVisitedStages(prev => {
@@ -152,6 +185,12 @@ export function UserProgressProvider({ children }: { children: React.ReactNode }
         setExplanationLevel,
         unitMode,
         setUnitMode,
+        completedCurriculumStages,
+        markCurriculumStageCompleted,
+        ayanamshaPreference,
+        setAyanamshaPreference,
+        chartFormatPreference,
+        setChartFormatPreference,
       }}
     >
       {children}
